@@ -179,6 +179,9 @@ class ParseSource():
         elif isinstance(a.value(), ly.music.items.UserCommand):
             # Don't know what to do with this:
             return
+        elif a.name() == 'indent':
+            # ignore
+            return
         if self.look_behind(a, ly.music.items.With):
             if self.with_contxt in group_contexts:
                 self.mediator.set_by_property(a.name(), val, True)
